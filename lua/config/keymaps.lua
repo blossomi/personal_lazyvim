@@ -33,12 +33,12 @@ map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon: Ad
 
 map("n", "<C-;>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)  -- show Harpoon toggle_quick_menu
 
-map("n", "\\a", function() harpoon:list():select(1) end)  -- navigate to file 1
-map("n", "\\s", function() harpoon:list():select(2) end)  -- navigate to file 2
-map("n", "\\d", function() harpoon:list():select(3) end)  -- navigate to file 3
-map("n", "\\f", function() harpoon:list():select(4) end)  -- navigate to file 4
-map("n", "\\g", function() harpoon:list():select(5) end)  -- navigate to file 5
-map("n", "\\c", function() harpoon:list():select(6) end)  -- navigate to file 6
+map("n", "\\a", function() harpoon:list():select(1) end, {desc = "navigate to file 1"})
+map("n", "\\s", function() harpoon:list():select(2) end, {desc = "navigate to file 2"})
+map("n", "\\d", function() harpoon:list():select(3) end, {desc = "navigate to file 3"})
+map("n", "\\f", function() harpoon:list():select(4) end, {desc = "navigate to file 4"})
+map("n", "\\g", function() harpoon:list():select(5) end, {desc = "navigate to file 5"})
+map("n", "\\c", function() harpoon:list():select(6) end, {desc = "navigate to file 6"})
 
 -- Toggle previous & next buffers stored within Harpoon list
 map("n", "<C-S-P>", function() harpoon:list():prev() end)
