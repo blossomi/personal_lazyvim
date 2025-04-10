@@ -3,14 +3,7 @@ return {
     "ThePrimeagen/harpoon",
     lazy = false,
     config = function()
-      require("harpoon").setup({
-        global_settings = {
-          save_on_toggle = true,
-          save_on_change = true,
-          enter_on_sendcmd = false,
-          mark_branch = false,
-        },
-      })
+      require("harpoon").setup({})
     end,
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -21,9 +14,6 @@ return {
   {
     "saecki/crates.nvim",
     tag = "stable",
-    config = function()
-      require("crates").setup()
-    end,
   },
 
   ---------------------------------------- telescope ------------------------------
@@ -31,21 +21,6 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<C-u>"] = false,
-            ["<C-d>"] = false,
-          },
-        },
-      },
-      pickers = {
-        find_files = {
-          hidden = true,
-        },
-      },
-    },
   },
 
   ---------------------------------------- hardhat ------------------------------
