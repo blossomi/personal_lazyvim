@@ -1,11 +1,4 @@
 return {
-  { "shaunsingh/nord.nvim" },
-
-  { "olimorris/onedarkpro.nvim" },
-
-  -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
@@ -13,4 +6,13 @@ return {
       colorscheme = "gruvbox",
     },
   },
+
+  { "kepano/flexoki-neovim" },
+
+  { "shaunsingh/nord.nvim" },
+
+  { "olimorris/onedarkpro.nvim" },
+
+  -- add gruvbox
+  { "ellisonleao/gruvbox.nvim" },
 }

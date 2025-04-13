@@ -51,6 +51,8 @@ return {
         winblend = 0,
       },
     },
+
+    require("telescope").load_extension("hardhat"),
   },
 
   -- add pyright to lspconfig
@@ -62,6 +64,8 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
+
+        ---------------------------------------------rust_analyzer-----------------------------------
         rust_analyzer = {
           -- on_attach
           on_attach = function(client, bufnr)
@@ -70,25 +74,13 @@ return {
 
           settings = {
             ["rust-analyzer"] = {
-              checkOnSave = {
-                command = "clippy",
-              },
-              cargo = {
-                allFeatures = true,
-              },
+              checkOnSave = { command = "clippy" },
+              cargo = { allFeatures = true },
               inlayHints = {
-                bindingModeHints = {
-                  enable = true,
-                },
-                closureReturnTypeHints = {
-                  enable = true,
-                },
-                lifetimeElisionHints = {
-                  enable = true,
-                },
-                reborrowHints = {
-                  enable = true,
-                },
+                bindingModeHints = { enable = true },
+                closureReturnTypeHints = { enable = true },
+                lifetimeElisionHints = { enable = true },
+                reborrowHints = { enable = true },
               },
             },
           },
@@ -155,6 +147,7 @@ return {
           "vim",
           "yaml",
           "rust",
+          "solidity",
         },
       },
     },

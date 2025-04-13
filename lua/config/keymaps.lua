@@ -25,11 +25,11 @@ map("n", "<leader>j", "A;<ESC>", { desc = "自动在行尾添加分号" })
 local harpoon = require("harpoon")
 
 -- REQUIRED
-harpoon:setup()
+harpoon:setup({}) -- 修改为你的配置对象
 -- REQUIRED
 
 map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon: Add file" })
-map("n", "g;", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {desc = "show Harpoon toggle_quick_menu"})
+map("n", "gh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {desc = "show Harpoon toggle_quick_menu"})
 
 map("n", "\\a", function() harpoon:list():select(1) end, { desc = "navigate to file 1" })
 map("n", "\\s", function() harpoon:list():select(2) end, { desc = "navigate to file 2" })
@@ -37,6 +37,27 @@ map("n", "\\d", function() harpoon:list():select(3) end, { desc = "navigate to f
 map("n", "\\f", function() harpoon:list():select(4) end, { desc = "navigate to file 4" })
 map("n", "\\g", function() harpoon:list():select(5) end, { desc = "navigate to file 5" })
 map("n", "\\c", function() harpoon:list():select(6) end, { desc = "navigate to file 6" })
+
+-- basic telescope configuration
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
+end
+
+map("n", "gi", function() toggle_telescope(harpoon:list()) end,
+    { desc = "Open harpoon window" })
 
 -----------------------------------------
 -- 切换到上一个缓冲区-
