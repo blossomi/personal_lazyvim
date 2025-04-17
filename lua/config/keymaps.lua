@@ -20,6 +20,16 @@ map("n", "<C-d>", "17j")
 
 map("n", "<leader>j", "A;<ESC>", { desc = "自动在行尾添加分号" })
 
+--------------insert模式-------------
+--map.set()
+map("i", "jk", "<ESC>")
+-- ---------------------------------
+
+-- ------------visual模式-------------
+map("v", "L", "$")
+map("v", "H", "^")
+--------------------------------------
+
 -------------------------------------------buffers-------------------------------------------------------------------
 ---------------Harpoon--------------------
 local harpoon = require("harpoon")
@@ -59,22 +69,14 @@ end
 map("n", "gi", function() toggle_telescope(harpoon:list()) end,
     { desc = "Open harpoon window" })
 
------------------------------------------
--- 切换到上一个缓冲区-
--- map('n', '<C-]>', ':bnext<CR>', opt)
--- 切换到下一个缓冲区（如果需要）
--- map('n', '<C-[>', ':bprevious<CR>', opt)
--- ---------------------------------
+----------------------------------------- Augment ---------------------------------
+map("n", "<Leader>rh", "<cmd>Augment chat-toggle<CR>", { desc = "Toggle Augment Chat History" })
+map("n", "<Leader>rc", "<cmd>Augment chat<CR>", { desc = "Send a chat msg in current conversation" })
+map("n", "<Leader>rn", "<cmd>Augment chat-new<CR>", { desc = "Start a new conversation" })
 
--- ------------insert模式-------------
--- map.set()
-map("i", "jk", "<ESC>")
--- ---------------------------------
+map("n", "<Leader>rs", "<cmd>Augment status<CR>", { desc = "View the current status of the plugin" })
+map("n", "<Leader>rl", "<cmd>Augment log<CR>", { desc = "View the plugin log"})
 
--- ------------visual模式-------------
-map("v", "L", "$")
-map("v", "H", "^")
---------------------------------------
 
 -- Nvim DAP
 map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })

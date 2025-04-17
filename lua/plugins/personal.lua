@@ -110,6 +110,7 @@ return {
       require("neotest").setup({
         adapters = {
           require("neotest-hardhat"),
+          require("rustaceanvim.neotest"),
         },
       })
     end,
@@ -122,7 +123,7 @@ return {
     },
   },
 
-  --------------------------------------- tree----------------------------
+  --------------------------------------- nvim-treesitter ----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -146,4 +147,54 @@ return {
       },
     },
   },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+
+  {
+    "echasnovski/mini.nvim",
+    version = "*",
+    config = function()
+      require("mini.ai").setup({}) -- Activates comment functional
+      require("mini.comment").setup({}) -- Activates comment functional
+      require("mini.surround").setup({}) -- Enables surround operations     -- Add individual module configurations here
+      require("mini.move").setup({})
+      -- require("animate").setup({})
+      -- require("icons").setup({})
+      -- require("hues").setup({})
+    end,
+  },
+
+  ----------------------------------------- conform -------------------------------------
+
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        css = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+      },
+      formatters = {
+        prettier = {
+          prepend_args = {
+            "--tab-width",
+            "4",
+            "--print-width",
+            "120",
+          },
+        },
+      },
+    },
+  },
+  ----------------------------------------- augment -------------------------------------------
+  { "augmentcode/augment.vim" },
 }
