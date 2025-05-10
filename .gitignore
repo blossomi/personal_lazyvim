@@ -1,9 +1,14 @@
+spell/
+
+.vscode
 .gitignore
-tt.*
 .tests
+.DS_Store
+.repro
+
 doc/tags
 debug
-.repro
 foo.*
 *.log
 data
+tt.*
